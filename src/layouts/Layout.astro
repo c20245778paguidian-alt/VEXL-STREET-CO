@@ -20,6 +20,10 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <title>{title}</title>
+  <script is:inline>
+    const savedTheme = localStorage.getItem("theme");
+    document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+  </script>
 </head>
 <body>
   <Header />
@@ -27,6 +31,25 @@ const {
     <slot />
   </main>
   <Footer />
+  <script is:inline>
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (themeToggle) {
+      const updateThemeButton = () => {
+        const isLight = document.documentElement.dataset.theme === "light";
+        themeToggle.textContent = isLight ? "Dark mode" : "Light mode";
+        themeToggle.setAttribute("aria-label", `Switch to ${isLight ? "dark" : "light"} mode`);
+      };
+
+      updateThemeButton();
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem("theme", nextTheme);
+        updateThemeButton();
+      });
+    }
+  </script>
 </body>
 </html>
 
@@ -42,6 +65,17 @@ const {
     font-family: Arial, Helvetica, sans-serif;
     background: #0b1120;
     color: #e5e7eb;
+  }
+
+  body::before {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    background: url("/images/vexl-mark-transparent.png") center / min(76vw, 720px) no-repeat;
+    content: "";
+    opacity: 0.055;
+    pointer-events: none;
+    filter: invert(1);
   }
 
   .eyebrow {
@@ -91,5 +125,58 @@ const {
 
   .btn:hover {
     background: #7dd3fc;
+  }
+
+  :root[data-theme="light"] body {
+    background: #fafafa;
+    color: #171717;
+  }
+
+  :root[data-theme="light"] body::before {
+    opacity: 0.045;
+    filter: none;
+  }
+
+  :root[data-theme="light"] .hero {
+    background: #fafafa;
+    color: #171717;
+  }
+
+  :root[data-theme="light"] .hero-description {
+    color: #5b6470;
+  }
+
+  :root[data-theme="light"] .section-description,
+  :root[data-theme="light"] .dark .section-description {
+    color: #5b6470;
+  }
+
+  :root[data-theme="light"] .dark,
+  :root[data-theme="light"] .about,
+  :root[data-theme="light"] .portfolio {
+    background: #f1f3f5;
+    color: #171717;
+  }
+
+  :root[data-theme="light"] .service-box,
+  :root[data-theme="light"] .workflow article,
+  :root[data-theme="light"] .card {
+    background: #fff;
+    color: #171717;
+    border-color: #e1e5e9;
+  }
+
+  :root[data-theme="light"] .service-box p,
+  :root[data-theme="light"] .workflow p,
+  :root[data-theme="light"] .card-content p,
+  :root[data-theme="light"] .about-content p:not(.eyebrow) {
+    color: #5b6470;
+  }
+
+  :root[data-theme="light"] .contact-form input,
+  :root[data-theme="light"] .contact-form textarea {
+    border-color: #cbd2d9;
+    background: #fff;
+    color: #171717;
   }
 </style>

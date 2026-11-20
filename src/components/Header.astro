@@ -1,6 +1,6 @@
 <header class="navbar">
   <a href="/" class="logo">
-    <img src="/logo.png" alt="VEXL logo" onerror="this.src='/images/vexl-logo.png'" />
+    <img src="/images/vexl-mark-transparent.png" alt="VEXL logo" />
     <span>BUILDING DIGITAL SOLUTIONS</span>
   </a>
 
@@ -11,6 +11,9 @@
     <a href="/about">About</a>
     <a href="/projects">Project</a>
     <a href="/contact">Contact</a>
+    <button id="theme-toggle" type="button" aria-label="Switch to light mode">
+      Light mode
+    </button>
   </nav>
 </header>
 
@@ -40,6 +43,8 @@
     height: 70px;
     object-fit: contain;
     display: block;
+    background: transparent;
+    filter: invert(1);
   }
 
   .logo span {
@@ -64,6 +69,21 @@
 
   nav a:hover {
     color: #38bdf8;
+  }
+
+  #theme-toggle {
+    border: 1px solid #38bdf8;
+    border-radius: 4px;
+    padding: 8px 12px;
+    background: transparent;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  #theme-toggle:hover {
+    background: #38bdf8;
+    color: #08111f;
   }
 
   @media (max-width: 768px) {
