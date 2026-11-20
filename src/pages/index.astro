@@ -1,16 +1,490 @@
+
 ---
+import Card from "../components/Card.astro";
+
+const products = [
+  {
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700",
+    title: "Classic T-Shirt",
+    desc: "Simple, clean, and comfortable everyday wear."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700",
+    title: "Premium Hoodie",
+    desc: "Modern comfort with a stylish streetwear look."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=700",
+    title: "Urban Collection",
+    desc: "Express your personality through modern fashion."
+  }
+];
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VEXL STREET - Modern streetwear and timeless fashion." />
+  <title>VEXL STREET | Modern Streetwear</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <img src="/logo.png" alt="VEXL STREET Logo" onerror="this.src='/images/vexl-logo.png'" />
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#roles">Roles</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <p class="eyebrow">MODERN STREETWEAR • EST. 2026</p>
+
+    <h1>VEXL STREET</h1>
+
+    <h2>Wear Your Identity.</h2>
+
+    <p class="hero-description">
+      Discover modern streetwear designed for confidence,
+      comfort, and individuality.
+    </p>
+
+    <a href="#projects" class="btn">Explore Collection</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <p class="eyebrow">WHAT WE OFFER</p>
+    <h2>Our Services</h2>
+
+    <p class="section-description">
+      We bring style, comfort, and quality together
+      to create clothing for everyday life.
+    </p>
+
+    <div class="services">
+      <div class="service-box">
+        <span>01</span>
+        <h3>Premium Clothing</h3>
+        <p>Quality clothing made for everyday comfort.</p>
+      </div>
+
+      <div class="service-box">
+        <span>02</span>
+        <h3>Modern Streetwear</h3>
+        <p>Trendy designs inspired by urban fashion.</p>
+      </div>
+
+      <div class="service-box">
+        <span>03</span>
+        <h3>Fashion Essentials</h3>
+        <p>Timeless pieces that match your personal style.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section id="roles" class="section dark">
+    <p class="eyebrow">OUR PURPOSE</p>
+    <h2>More Than Just Clothing</h2>
+
+    <p class="section-description">
+      VEXL STREET represents confidence,
+      creativity, and individuality. Our role is to
+      provide fashion that allows everyone to express
+      their own identity.
+    </p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="about-content">
+      <p class="eyebrow">OUR STORY</p>
+      <h2>About VEXL STREET</h2>
+
+      <p>
+        VEXL STREET is a modern streetwear clothing
+        brand inspired by urban culture and minimalist
+        fashion. We believe that clothing is more than
+        just what you wear. It is a way to express who
+        you are.
+      </p>
+
+      <p>
+        Our goal is to bring comfortable, stylish, and
+        timeless clothing to people who value confidence
+        and individuality.
+      </p>
+
+      <a href="#projects" class="btn">Discover Our Style</a>
+    </div>
+  </section>
+
+  <!-- PROJECTS / COLLECTION -->
+  <section id="projects" class="section collection">
+    <p class="eyebrow">OUR PRODUCTS</p>
+    <h2>Featured Collection</h2>
+
+    <p class="section-description">
+      Find your style. Express your identity.
+    </p>
+
+    <div class="cards">
+      {products.map((product) => (
+        <Card
+          image={product.image}
+          title={product.title}
+          desc={product.desc}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section dark">
+    <p class="eyebrow">GET IN TOUCH</p>
+    <h2>Contact Us</h2>
+
+    <p class="section-description">
+      Have questions about our clothing collection?
+      Send us a message.
+    </p>
+
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="button">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="/logo.png" alt="VEXL STREET Logo" onerror="this.src='/images/vexl-logo.png'" />
+
+    <p>Wear Your Identity.</p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Collection</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <p class="copyright">
+      © 2026 VEXL STREET. All Rights Reserved.
+    </p>
+  </footer>
+
+</body>
 </html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    color: #171717;
+  }
+
+  /* HEADER */
+  .navbar {
+    background: #080808;
+    color: white;
+    padding: 12px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo img {
+    width: 120px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: #d6b98c;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 550px;
+    background:
+      linear-gradient(rgba(5, 8, 18, 0.35), rgba(5, 8, 18, 0.55)),
+      url("/images/hero-background.png") center / cover no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .eyebrow {
+    color: #b99b6b;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 8vw, 85px);
+    letter-spacing: 8px;
+    margin: 15px 0;
+  }
+
+  .hero h2 {
+    font-size: 27px;
+    margin-bottom: 18px;
+  }
+
+  .hero-description {
+    max-width: 550px;
+    line-height: 1.8;
+    color: #ccc;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #d6b98c;
+    color: #111;
+    padding: 15px 28px;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: white;
+  }
+
+  /* GENERAL SECTIONS */
+  .section {
+    padding: 85px 8%;
+    text-align: center;
+  }
+
+  .section h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  .section-description {
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #666;
+  }
+
+  .dark {
+    background: #111;
+    color: white;
+  }
+
+  .dark .section-description {
+    color: #ccc;
+  }
+
+  /* SERVICES */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+  }
+
+  .service-box {
+    background: #e9e5dd;
+    color: #171717;
+    padding: 35px 22px;
+  }
+
+  .service-box span {
+    color: #9b7847;
+    font-weight: bold;
+  }
+
+  .service-box h3 {
+    margin: 15px 0;
+  }
+
+  .service-box p {
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  .about {
+    background: #e9e5dd;
+  }
+
+  .about-content {
+    max-width: 750px;
+    margin: auto;
+  }
+
+  .about-content p:not(.eyebrow) {
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 15px;
+  }
+
+  /* COLLECTION */
+  .collection {
+    background: #f5f5f5;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  /* CONTACT */
+  .contact-form {
+    max-width: 500px;
+    margin: 35px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #555;
+    background: #222;
+    color: white;
+    font-family: inherit;
+  }
+
+  .contact-form textarea {
+    height: 130px;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    background: #d6b98c;
+    color: #111;
+    border: none;
+    padding: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background: white;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #050505;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  footer img {
+    width: 120px;
+    height: 75px;
+    object-fit: contain;
+    background: transparent;
+    margin-bottom: 15px;
+  }
+
+  footer p {
+    color: #bbb;
+    margin: 10px 0;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    nav {
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .hero h1 {
+      letter-spacing: 4px;
+    }
+
+    .services,
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .section {
+      padding: 60px 6%;
+    }
+  }
+</style>
