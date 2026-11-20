@@ -1,0 +1,53 @@
+<section id="contact" class="section dark">
+  <p class="eyebrow">GET IN TOUCH</p>
+  <h2>Contact Us</h2>
+  <p class="section-description">
+    Have questions about our clothing collection?
+    Send us a message.
+  </p>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<style>
+  .contact-form {
+    max-width: 500px;
+    margin: 35px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #555;
+    background: #222;
+    color: white;
+    font-family: inherit;
+  }
+
+  .contact-form textarea {
+    height: 130px;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    background: #d6b98c;
+    color: #111;
+    border: none;
+    padding: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background: white;
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import Card from "./Card.astro";
+
+const products = [
+  {
+    image: "/images/classic-tshirt.jpg",
+    title: "Classic T-Shirt",
+    desc: "Simple, clean, and comfortable everyday wear."
+  },
+  {
+    image: "/images/premium-hoodie.jpg",
+    title: "Premium Hoodie",
+    desc: "Modern comfort with a stylish streetwear look."
+  },
+  {
+    image: "https://images.pexels.com/photos/38551450/pexels-photo-38551450.jpeg?w=700",
+    title: "Urban Collection",
+    desc: "Express your personality through modern fashion."
+  }
+];
+---
+
+<section id="projects" class="section collection">
+  <p class="eyebrow">OUR PRODUCTS</p>
+  <h2>Featured Collection</h2>
+  <p class="section-description">
+    Find your style. Express your identity.
+  </p>
+
+  <div class="cards">
+    {products.map((product) => (
+      <Card image={product.image} title={product.title} desc={product.desc} />
+    ))}
+  </div>
+</section>
+
+<style>
+  .collection {
+    background: #f5f5f5;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

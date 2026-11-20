@@ -1,0 +1,61 @@
+<section id="services" class="section">
+  <p class="eyebrow">WHAT WE OFFER</p>
+  <h2>Our Services</h2>
+  <p class="section-description">
+    We bring style, comfort, and quality together
+    to create clothing for everyday life.
+  </p>
+
+  <div class="services">
+    <div class="service-box">
+      <span>01</span>
+      <h3>Premium Clothing</h3>
+      <p>Quality clothing made for everyday comfort.</p>
+    </div>
+    <div class="service-box">
+      <span>02</span>
+      <h3>Modern Streetwear</h3>
+      <p>Trendy designs inspired by urban fashion.</p>
+    </div>
+    <div class="service-box">
+      <span>03</span>
+      <h3>Fashion Essentials</h3>
+      <p>Timeless pieces that match your personal style.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+  }
+
+  .service-box {
+    background: #e9e5dd;
+    color: #171717;
+    padding: 35px 22px;
+  }
+
+  .service-box span {
+    color: #9b7847;
+    font-weight: bold;
+  }
+
+  .service-box h3 {
+    margin: 15px 0;
+  }
+
+  .service-box p {
+    color: #666;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .services {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
