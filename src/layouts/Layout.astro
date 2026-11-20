@@ -26,6 +26,10 @@ const {
   </script>
 </head>
 <body>
+  <div class="falling-leaves" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
   <Header />
   <main>
     <slot />
@@ -76,6 +80,62 @@ const {
     opacity: 0.055;
     pointer-events: none;
     filter: invert(1);
+  }
+
+  .falling-leaves {
+    position: fixed;
+    z-index: 2;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .falling-leaves span {
+    position: absolute;
+    top: -8vh;
+    left: var(--leaf-left);
+    width: 13px;
+    height: 19px;
+    border-radius: 0 100% 0 100%;
+    background: var(--leaf-color);
+    opacity: 0.45;
+    animation: leaf-fall var(--leaf-duration) linear var(--leaf-delay) infinite;
+  }
+
+  .falling-leaves span::after {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    width: 1px;
+    height: 13px;
+    background: #ffffff80;
+    content: "";
+    transform: rotate(-35deg);
+  }
+
+  .falling-leaves span:nth-child(1) { --leaf-left: 7%; --leaf-duration: 17s; --leaf-delay: -8s; --leaf-color: #34d399; }
+  .falling-leaves span:nth-child(2) { --leaf-left: 16%; --leaf-duration: 22s; --leaf-delay: -17s; --leaf-color: #a3e635; }
+  .falling-leaves span:nth-child(3) { --leaf-left: 28%; --leaf-duration: 19s; --leaf-delay: -4s; --leaf-color: #facc15; }
+  .falling-leaves span:nth-child(4) { --leaf-left: 39%; --leaf-duration: 24s; --leaf-delay: -13s; --leaf-color: #22c55e; }
+  .falling-leaves span:nth-child(5) { --leaf-left: 51%; --leaf-duration: 18s; --leaf-delay: -10s; --leaf-color: #84cc16; }
+  .falling-leaves span:nth-child(6) { --leaf-left: 63%; --leaf-duration: 21s; --leaf-delay: -19s; --leaf-color: #eab308; }
+  .falling-leaves span:nth-child(7) { --leaf-left: 74%; --leaf-duration: 25s; --leaf-delay: -6s; --leaf-color: #34d399; }
+  .falling-leaves span:nth-child(8) { --leaf-left: 83%; --leaf-duration: 20s; --leaf-delay: -15s; --leaf-color: #a3e635; }
+  .falling-leaves span:nth-child(9) { --leaf-left: 92%; --leaf-duration: 23s; --leaf-delay: -2s; --leaf-color: #facc15; }
+  .falling-leaves span:nth-child(10) { --leaf-left: 34%; --leaf-duration: 26s; --leaf-delay: -21s; --leaf-color: #22c55e; }
+
+  @keyframes leaf-fall {
+    0% { transform: translate3d(0, -8vh, 0) rotate(0deg); }
+    25% { transform: translate3d(26px, 22vh, 0) rotate(180deg); }
+    50% { transform: translate3d(-18px, 52vh, 0) rotate(360deg); }
+    75% { transform: translate3d(22px, 82vh, 0) rotate(540deg); }
+    100% { transform: translate3d(-14px, 112vh, 0) rotate(720deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .falling-leaves {
+      display: none;
+    }
   }
 
   .eyebrow {
