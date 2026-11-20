@@ -1,42 +1,43 @@
 ---
 import Card from "./Card.astro";
 
-const products = [
+const examples = [
   {
-    image: "/images/classic-tshirt.jpg",
-    title: "Classic T-Shirt",
-    desc: "Simple, clean, and comfortable everyday wear."
+    category: "DATABASE APPLICATION",
+    title: "Inventory Management System",
+    desc: "A sample system concept for tracking items, stock levels, and updates in one place."
   },
   {
-    image: "/images/premium-hoodie.jpg",
-    title: "Premium Hoodie",
-    desc: "Modern comfort with a stylish streetwear look."
+    category: "INFORMATION SYSTEM",
+    title: "Student Records System",
+    desc: "A sample application concept for organizing student profiles and academic records."
   },
   {
-    image: "https://images.pexels.com/photos/38551450/pexels-photo-38551450.jpeg?w=700",
-    title: "Urban Collection",
-    desc: "Express your personality through modern fashion."
+    category: "WEB DEVELOPMENT",
+    title: "Business Website",
+    desc: "A responsive website concept that presents services and makes information easy to find."
   }
 ];
 ---
 
-<section id="projects" class="section collection">
-  <p class="eyebrow">OUR PRODUCTS</p>
-  <h2>Featured Collection</h2>
+<section id="projects" class="section portfolio">
+  <p class="eyebrow">PROGRAMMING AREAS</p>
+  <h2>Systems I Can Build</h2>
   <p class="section-description">
-    Find your style. Express your identity.
+    Example project directions that bring together programming,
+    data management, and user-focused design.
   </p>
 
   <div class="cards">
-    {products.map((product) => (
-      <Card image={product.image} title={product.title} desc={product.desc} />
+    {examples.map((example) => (
+      <Card category={example.category} title={example.title} desc={example.desc} />
     ))}
   </div>
 </section>
 
 <style>
-  .collection {
-    background: #f5f5f5;
+  .portfolio {
+    background: #0b1120;
   }
 
   .cards {

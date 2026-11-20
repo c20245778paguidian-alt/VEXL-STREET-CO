@@ -1,12 +1,15 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
 interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = "VEXL STREET | Modern Streetwear",
-  description = "VEXL STREET - Modern streetwear and timeless fashion."
+  title = "IT Systems Programming | VEXL",
+  description = "IT systems programming portfolio featuring web applications, database systems, and software solutions."
 } = Astro.props;
 ---
 
@@ -19,7 +22,11 @@ const {
   <title>{title}</title>
 </head>
 <body>
-  <slot />
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
 </body>
 </html>
 
@@ -33,13 +40,13 @@ const {
 
   body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
-    color: #171717;
+    background: #0b1120;
+    color: #e5e7eb;
   }
 
   .eyebrow {
-    color: #b99b6b;
-    letter-spacing: 4px;
+    color: #38bdf8;
+    letter-spacing: 3px;
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 18px;
@@ -59,22 +66,22 @@ const {
     max-width: 650px;
     margin: 0 auto;
     line-height: 1.8;
-    color: #666;
+    color: #94a3b8;
   }
 
   .dark {
-    background: #111;
-    color: white;
+    background: #080d18;
+    color: #e5e7eb;
   }
 
   .dark .section-description {
-    color: #ccc;
+    color: #94a3b8;
   }
 
   .btn {
     display: inline-block;
-    background: #d6b98c;
-    color: #111;
+    background: #38bdf8;
+    color: #08111f;
     padding: 15px 28px;
     margin-top: 25px;
     text-decoration: none;
@@ -83,6 +90,6 @@ const {
   }
 
   .btn:hover {
-    background: white;
+    background: #7dd3fc;
   }
 </style>
